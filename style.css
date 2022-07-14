@@ -44,6 +44,7 @@ body{
     flex-wrap: wrap;
     background-color: #fff;
     border-radius: 14px;
+    box-shadow: 0px 12px 20px 0px hsla(217, 19%, 35%, 0.2);
 }
 .wrapper .image {
     min-height: 300px;
@@ -76,14 +77,24 @@ img.author-avatar {
 }
 .author p { margin: 0; }
 .share{
-    background-color: var(--light-grayish-blue);
-    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 40px;
     margin-top: 10px;
-    background-image: url(./assets/images/icon-share.svg);
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--light-grayish-blue);
+    border-radius: 100%;
+    cursor: pointer;
+}
+.share svg {
+    fill: #6E8098;
+}
+.share:hover{
+    background-color: var(--desaturated-dark-blue);
+}
+.share:hover svg {
+    fill: #fff;
 }
 p{
     color: var(--desaturated-dark-blue);
