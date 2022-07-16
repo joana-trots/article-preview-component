@@ -39,6 +39,8 @@ h2, b{
 p span{
     color: var(--grayish-blue);
 }
+a{color: inherit;}
+
 .wrapper{
     height: 100vh;
     width: 100%;
@@ -114,12 +116,15 @@ img.author-avatar {
 }
 .socialmedia:hover .share-btn,
 .share-btn:hover,
-input[type=checkbox]:checked /* for alternate solution */
+input[type=checkbox]:checked, /* for alternate solution */
+.share-btn-withjs             /* classname to simplify js use */
 {
     background-color: var(--desaturated-dark-blue);
 }
 .socialmedia:hover .share-btn svg,
-.share-btn:hover svg {
+.share-btn:hover svg,
+.share-btn-withjs svg         /* classname to simplify js use */
+{
     fill: #fff;
 }
 .social{
@@ -162,7 +167,9 @@ input[type=checkbox]:checked /* for alternate solution */
 }
 .socialmedia .share-btn:hover ~ .social,
 .social:hover,
-input[type=checkbox]:checked ~ .social{ /* for alternate solution */
+input[type=checkbox]:checked ~ .social, /* for alternate solution */
+.social-withjs                          /* classname to simplify js use */
+{ 
     transform: scale(1.2);
     visibility: visible;
     opacity: 1;
@@ -195,6 +202,6 @@ input[type=checkbox]:checked {
     text-align: center;
 }
 .socialmedia:hover .note,
-.socialmedia-js:hover .note {
+.socialmedia-withjs:hover .note {
     opacity: 1;
 }
