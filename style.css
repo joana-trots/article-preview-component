@@ -48,12 +48,11 @@ p span{
     justify-content: center;
     font-family: var(--ff-sans-serif);
     background-color: var(--light-grayish-blue);
-    padding: 0 100px;
+    padding: 0 3vw;
 }
 
 
 /* PREVIEW COMPONENT */ 
-
 .wrapper .preview-component{
     max-width: 860px;
     height: auto;
@@ -84,7 +83,6 @@ p span{
 }
 
 /* AUTHOR */ 
-
 .author {
     display: flex;
     gap: 13px;
@@ -99,7 +97,6 @@ img.author-avatar {
 
 
 /* SHARE BUTTON */
-
 .share-btn{
     display: flex;
     justify-content: center;
@@ -115,10 +112,14 @@ img.author-avatar {
 .share-btn svg{
     fill: #6E8098;
 }
-.socialmedia:hover .share-btn{
+.socialmedia:hover .share-btn,
+.share-btn:hover,
+input[type=checkbox]:checked /* for alternate solution */
+{
     background-color: var(--desaturated-dark-blue);
 }
-.socialmedia:hover .share-btn svg {
+.socialmedia:hover .share-btn svg,
+.share-btn:hover svg {
     fill: #fff;
 }
 .social{
@@ -159,18 +160,32 @@ img.author-avatar {
     opacity: 1;
     transition: 400ms;
 }
-.share-btn:hover ~ .social,
-.social:hover{
+.socialmedia .share-btn:hover ~ .social,
+.social:hover,
+input[type=checkbox]:checked ~ .social{ /* for alternate solution */
     transform: scale(1.2);
     visibility: visible;
     opacity: 1;
 }
 
 
-/* NOTE */
+/* ALTERNATE SHARE BUTTON */
+input[type=checkbox] {
+    appearance: none;
+    /* background-color:var(--light-grayish-blue); */
+    background-image: url(./assets/images/icon-share.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+input[type=checkbox]:hover,
+input[type=checkbox]:checked {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path fill="%23ffffff" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg>');
+}
 
+
+/* NOTE */
 .note{
-    opacity: 0;
+    opacity: .5;
     font-size: 14px;
     color: #6E8098;
     position: absolute;
@@ -179,6 +194,7 @@ img.author-avatar {
     bottom: 5%;
     text-align: center;
 }
-.socialmedia:hover .note{
+.socialmedia:hover .note,
+.socialmedia-js:hover .note {
     opacity: 1;
 }
