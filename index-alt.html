@@ -26,13 +26,13 @@
                 <span>Jun 2020</span>
               </p>
             </div>
-            <div class="socialmedia-js">
-              <input type="checkbox" id="cb" class="share-btn">
+            <div>
+              <input type="checkbox" id="cb" class="share-btn" onclick="ClickFunc()">
               <div class="social">
                 <span>SHARE </span>
-                <img src="./assets/images/icon-facebook.svg">
-                <img src="./assets/images/icon-pinterest.svg">
-                <img src="./assets/images/icon-twitter.svg">
+                <a href=""><img src="./assets/images/icon-facebook.svg"></a>
+                <a href=""><img src="./assets/images/icon-pinterest.svg"></a>
+                <a href=""><img src="./assets/images/icon-twitter.svg"></a>
               </div>
               <div class="note">
                 This is solution of Share Button with CSS checkbox tricks (works on click).
@@ -49,9 +49,9 @@
             <div class="socialmedia-mobile">
               <div class="social-mobile">
                 <span>SHARE </span>
-                <img src="./assets/images/icon-facebook.svg">
-                <img src="./assets/images/icon-pinterest.svg">
-                <img src="./assets/images/icon-twitter.svg">
+                <a href=""><img src="./assets/images/icon-facebook.svg"></a>
+                <a href=""><img src="./assets/images/icon-pinterest.svg"></a>
+                <a href=""><img src="./assets/images/icon-twitter.svg"></a>
               </div>
               <div class="share-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path fill="#fff" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg>
@@ -63,7 +63,21 @@
       </div>
     </div>
     <script>
-      
+      function ClickFunc() {
+        let foomobile = document.getElementsByClassName("footnote-mobile")[0];
+        let footnote = document.getElementsByClassName("footnote")[0];
+        let sharebtn_active = document.getElementsByClassName("footnote-mobile")[0].getElementsByClassName("share-btn")[0];
+        if (window.screen.width <= 666 || window.innerWidth <= 666) {
+          footnote.style.display = "none";
+          foomobile.style.display = "block";
+          document.addEventListener("click", function(e){
+              if (sharebtn_active.contains(e.target)){
+                  foomobile.style.display = "none";
+                  footnote.style.display = "flex";    
+              }
+          });  
+        }
+      }
     </script>
   </body>
 </html>
