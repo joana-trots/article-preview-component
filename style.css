@@ -162,17 +162,10 @@ img.author-avatar {
     cursor: pointer;
     opacity: .85;
 }
-.social img:hover {
+.social img:hover,
+.social-mobile img:hover {
     opacity: 1;
     transition: 400ms;
-}
-.socialmedia .share-btn:hover ~ .social,
-.social:hover,
-.social-withjs  /* classname to simplify js use */
-{ 
-    transform: scale(1.2);
-    visibility: visible;
-    opacity: 1;
 }
 
 
@@ -186,8 +179,9 @@ input[type=checkbox] {
 input[type=checkbox]:hover {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path fill="%23ffffff" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg>');
 }
-/* we don't need this style for small screen */
-/* we have a script for share btn for small screen */
+
+/* these styles for Share btn on large screen only */
+/* for small screen we have a js-script  */
 @media screen and (min-width: 667px) {
     input[type=checkbox]:checked ~ .social{
         transform: scale(1.2);
@@ -197,6 +191,14 @@ input[type=checkbox]:hover {
     input[type=checkbox]:checked{
         background-color: var(--desaturated-dark-blue);
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path fill="%23ffffff" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg>');
+    }
+    .socialmedia .share-btn:hover ~ .social,
+    .social:hover,
+    .social-withjs  /* classname to simplify js use */
+    { 
+        transform: scale(1.2);
+        visibility: visible;
+        opacity: 1;
     }
 }
 
@@ -210,6 +212,7 @@ input[type=checkbox]:hover {
     transform: translate(-50%, 0%);
     bottom: -100px;
     text-align: center;
+    width: 100%;
     z-index: -1;
 }
 .socialmedia:hover .note,

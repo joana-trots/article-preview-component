@@ -1,6 +1,7 @@
 # Article preview component solution
 
-This is a solution to the Article preview component challenge on Frontend Mentor (https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT). 
+This is a solution to the Article preview component.
+
 
 ## Table of contents
 
@@ -14,6 +15,17 @@ This is a solution to the Article preview component challenge on Frontend Mentor
 
 
 ## Overview
+
+This is a solution to the Article preview component.
+Share button implemented in three different ways, that's why we have three html files: 
+
+1. index.html - use hover effect
+2. index-alt.html - use checkbox method (alternate way)
+3. index-withjs - use JS (onclick and onmouseleave) (another alternate way)
+
+NOTE: the way the button is displayed on small screen is the same in all files. Sorry, got a little lazy :)
+
+File script.js is only used in index-withjs.
 
 ### The challenge
 
