@@ -24,38 +24,39 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
-body{
+body {
     margin: 0;
     padding: 0;
 }
-p{
+p {
     color: var(--desaturated-dark-blue);
     font-weight: var(--fw-regular);
     line-height: 26px;
 } 
-h2, b{
+h2, b {
     color: var(--dark-grayish-blue);
 }
-p span{
+p span {
     color: var(--grayish-blue);
 }
-a{color: inherit;}
+a { color: inherit; }
 
-.wrapper{
+.wrapper {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: var(--ff-sans-serif);
     background-color: var(--light-grayish-blue);
-    padding: 0 3vw;
+    padding: 5vw;
+    overflow: hidden;
 }
 
 
 /* PREVIEW COMPONENT */ 
-.wrapper .preview-component{
+.wrapper .preview-component {
     max-width: 860px;
     height: auto;
     display: flex;
@@ -63,6 +64,8 @@ a{color: inherit;}
     background-color: #fff;
     border-radius: 14px;
     box-shadow: 0px 12px 20px 0px hsla(217, 19%, 35%, 0.2);
+    z-index: 0;
+    position: relative;
 }
 .wrapper .image {
     min-height: 300px;
@@ -73,7 +76,7 @@ a{color: inherit;}
     border-top-left-radius: 14px;
     border-bottom-left-radius: 14px;
 }
-.wrapper .description{
+.wrapper .description {
     padding: 30px 50px;
     min-width: 300px;
     flex: 2 1 100px;
@@ -81,7 +84,6 @@ a{color: inherit;}
 .footnote {
     display: flex;
     justify-content: space-between;
-    align-items: top;
 }
 
 /* AUTHOR */ 
@@ -99,7 +101,7 @@ img.author-avatar {
 
 
 /* SHARE BUTTON */
-.share-btn{
+.share-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,7 +113,7 @@ img.author-avatar {
     cursor: pointer;
     transition: all 400ms;
 }
-.share-btn svg{
+.share-btn svg {
     fill: #6E8098;
 }
 .socialmedia:hover .share-btn,
@@ -127,7 +129,7 @@ input[type=checkbox]:checked, /* for alternate solution */
 {
     fill: #fff;
 }
-.social{
+.social {
     visibility: hidden;
     display: flex;
     align-items: center;
@@ -146,7 +148,7 @@ input[type=checkbox]:checked, /* for alternate solution */
     -webkit-transition: all .5s ease-in-out; 
     opacity: 0;
 }
-.social::after{
+.social::after {
     content: '';
     width: 20px;
     height: 20px;
@@ -156,12 +158,12 @@ input[type=checkbox]:checked, /* for alternate solution */
     transform: rotate(45deg);
     z-index: -1;
 }
-.social img{
+.social img {
     margin-left: 14px;
     cursor: pointer;
     opacity: .85;
 }
-.social img:hover{
+.social img:hover {
     opacity: 1;
     transition: 400ms;
 }
@@ -191,17 +193,70 @@ input[type=checkbox]:checked {
 
 
 /* NOTE */
-.note{
+.note {
     opacity: .5;
     font-size: 14px;
     color: #6E8098;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
-    bottom: 5%;
+    bottom: -100px;
     text-align: center;
+    z-index: -1;
 }
 .socialmedia:hover .note,
 .socialmedia-withjs:hover .note {
     opacity: 1;
 }
+
+
+/* MOBILE STYLES */
+.footnote-mobile { display: none; }
+
+@media screen and (max-width: 666px) {
+    .note { display: none; }
+    .wrapper .image { 
+        border-radius: 0;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px; 
+    }
+    .preview-component { flex-direction: column; }
+    .wrapper .description { padding: 20px 40px; }
+    h2 { font-size: 1.1rem; }
+    p { font-size: .88em; line-height: 1.4rem; }
+    .description .text { margin-bottom: 30px; }
+    .footnote { align-items: center; }
+    .footnote-mobile { 
+        background-color: var(--dark-grayish-blue);
+        padding: 20px 40px;
+        border-bottom-left-radius: 14px;
+        border-bottom-right-radius: 14px;
+        width: calc(100% + 80px);
+        margin-left: -40px;
+        margin-bottom: -20px;
+    }
+    .socialmedia-mobile { 
+        display: flex; 
+        justify-content: space-between; 
+    }
+    .social-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--grayish-blue);
+        font-size: 12px;
+        letter-spacing: .3rem;
+    }
+    .social-mobile img {
+        margin-left: 14px;
+    }
+    .share-btn {
+        width: 36px;
+        height: 36px;
+        margin-top: 0px;
+    }
+    .footnote-mobile .share-btn {
+        background-color: var(--desaturated-dark-blue);
+    }
+    img.author-avatar { width: 56px; height: 56px; }
+  }
